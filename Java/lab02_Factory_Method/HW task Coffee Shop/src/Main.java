@@ -2,14 +2,15 @@ public class Main {
     public static void main(String[] args) {
 
         CoffeeShop shop = new CoffeeShop();
-        shop.addIngridient("ing1", 2);
-        shop.addIngridient("ing2", 1);
-        shop.addIngridient("ing3", 0.5);
-        shop.addIngridient("ing4", 1.3);
-        shop.addIngridient("ing5", 2.2);
 
+        shop.makeCoffee(new MakeLatte(), 5, 10);
+        shop.makeCoffee(new MakeAmericano(), 3, 12);
+        shop.makeCoffee(new MakeLatte(), 5, 10);
+        shop.makeCoffee(new MakeCappuchino(), 6.8, 15);
+        shop.makeCoffee(new MakeEspresso(), 3.5, 8.5);
+        shop.makeCoffee(new MakeCoffeeWithMilk(), 4.25, 9.75);
 
-
+        shop.profit();
 
     }
 }
