@@ -71,9 +71,9 @@ public class Main {
             totalHyundai += Hyundai_trolleybuses.get(i).getCost() + Hyundai_trolleybuses.get(i).getUsageCost() * N;
         }
 
-        System.out.printf("Skoda - %s\n", totalSkoda);
-        System.out.printf("Volvo - %s\n", totalVolvo);
-        System.out.printf("Hyundai - %s\n", totalHyundai);
+        System.out.printf("Skoda - %s\n", totalSkoda);     // 516000000
+        System.out.printf("Volvo - %s\n", totalVolvo);     // 541000000
+        System.out.printf("Hyundai - %s\n", totalHyundai); // 516500000
 
     }
 }
