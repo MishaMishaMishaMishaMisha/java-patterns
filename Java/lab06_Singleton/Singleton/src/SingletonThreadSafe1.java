@@ -1,9 +1,9 @@
-public class Singleton {
+public class SingletonThreadSafe1 {
 
     int data = 10;
-    private static Singleton instance = null;
+    private static SingletonThreadSafe1 instance = null;
 
-    private Singleton() {
+    private SingletonThreadSafe1() {
 
     }
 
@@ -13,15 +13,14 @@ public class Singleton {
     int getData() {
         return data;
     }
-    static Singleton getInstance() {
+    synchronized public static SingletonThreadSafe1 getInstance() {
         if (instance == null) {
             System.out.println("Creation Singleton");
-            instance = new Singleton();
+            instance = new SingletonThreadSafe1();
         }
         return instance;
     }
     public void show() {
         System.out.println("Singleton " + this + " {" + "data=" + data + '}');
     }
-
 }

@@ -1,9 +1,9 @@
-public class Singleton {
+public class Singleton2 {
 
     int data = 10;
-    private static Singleton instance = null;
+    private static final Singleton2 instance = new Singleton2();
 
-    private Singleton() {
+    private Singleton2() {
 
     }
 
@@ -13,11 +13,7 @@ public class Singleton {
     int getData() {
         return data;
     }
-    static Singleton getInstance() {
-        if (instance == null) {
-            System.out.println("Creation Singleton");
-            instance = new Singleton();
-        }
+    static Singleton2 getInstance() {
         return instance;
     }
     public void show() {
