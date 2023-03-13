@@ -1,5 +1,13 @@
 public abstract class Button {
 
-    abstract void draw();
+    final private SizeButton sizeButton;
+
+    public Button(SizeButton sizeButton) {
+        this.sizeButton = sizeButton;
+    }
+
+    public void draw() {
+        sizeButton.setSize();
+    }
 
 }
