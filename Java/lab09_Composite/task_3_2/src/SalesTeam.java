@@ -1,26 +1,32 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class SalesTeam {
+public class SalesTeam implements Workable {
 
-    private final List<Manager> managers = new ArrayList<>();
-    private final List<Salesperson> salespeople = new ArrayList<>();
+    private final ArrayList<Workable> workers = new ArrayList<>();
 
-    void addManager(Manager manager) {
-        managers.add(manager);
+    private final Workable boss;
+
+    public SalesTeam(Workable worker) {
+        this.boss = worker;
     }
 
-    void addSalesperson(Salesperson salesperson) {
-        salespeople.add(salesperson);
+    public ArrayList<Workable> getChildren() {
+        return workers;
+    }
+    public void add(Workable worker) {
+        workers.add(worker);
+    }
+    public void remove(Workable worker){
+        workers.remove(worker);
     }
 
+    @Override
     public void payExpenses(int amount) {
-        for (Manager manager : managers) {
-            manager.payExpenses(amount);
-        }
+        boss.payExpenses(amount);
 
-        for (Salesperson salesperson : salespeople) {
-            salesperson.payExpenses(amount);
+        for (Workable worker : workers) {
+            worker.payExpenses(amount);
         }
     }
 

@@ -1,13 +1,6 @@
-public class Manager {
-
-    private final String name;
-
-    public Manager(String name) {
-        this.name = name;
-    }
-
-    public void payExpenses(int amount) {
-        System.out.println(name + " has been paid $" + amount);
+public class Manager extends Worker {
+    public Manager(String name, String department) {
+        super(name, department);
     }
 
 }
