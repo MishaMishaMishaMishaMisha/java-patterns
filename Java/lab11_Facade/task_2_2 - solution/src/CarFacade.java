@@ -1,20 +1,53 @@
 public class CarFacade {
 
-  public void drive() {
-    Ignition ignition = new Ignition();
-    Clutch clutch = new Clutch();
-    Accelerator accelerator = new Accelerator();
-    GearStick gearStick = new GearStick();
-    Handbrake handbrake = new Handbrake();
+  private final Ignition ignition = new Ignition();
+  private final Clutch clutch = new Clutch();
+  private final Accelerator accelerator = new Accelerator();
+  private final GearStick gearStick = new GearStick();
+  private final Handbrake handbrake = new Handbrake();
 
+  /**
+   * Завести автомобіль - увімкнути запалювання
+   */
+  public void turnOn() {
     ignition.turnOn();
+  }
+
+  /**
+   * Заглушити автомобіль
+   */
+  public void turnOff() {
+    ignition.turnOff();
+  }
+
+  /**
+   * Підвищити передачу
+   */
+  public void raiseGear() {
+    int currentGear = gearStick.getGear();
+
+    if (currentGear == 0) {
+      handbrake.pushDown();
+    }
+
     clutch.press();
-    gearStick.changeGear(1);
+    gearStick.changeGear(currentGear + 1);
     accelerator.press();
     clutch.lift();
-    handbrake.pushDown();
-    accelerator.press();
+  }
+
+  /**
+   * Понизити передачу
+   */
+  public void lowerGear() {
     clutch.press();
+    gearStick.changeGear(gearStick.getGear() - 1);
+    accelerator.press();
+    clutch.lift();
+
+    if (gearStick.getGear() == 0) {
+      handbrake.liftUp();
+    }
   }
 
 }
