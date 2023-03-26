@@ -2,17 +2,19 @@ public class ImageGallery {
 
     public static void main(String[] args) {
 
+        ImageFileFactory factory = new ImageFileFactory();
+
         DisplayObject[] images = {
-                new ImageFile("resources/image1.jpeg"),
-                new ImageFile("resources/image2.jpeg"),
-                new ImageFile("resources/image3.jpeg"),
-                new ImageFile("resources/image4.jpeg"),
-                new ImageFile("resources/image5.jpeg"),
-                new ImageFile("resources/image6.jpeg"),
-                new ImageFile("resources/image7.jpeg"),
-                new ImageFile("resources/image8.jpeg"),
-                new ImageFile("resources/image9.jpeg"),
-                new ImageFile("resources/image10.jpeg"),
+                factory.createImage("C:\\Users\\Misha\\IdeaProjects\\design-patterns-java\\Java\\lab13_Proxy\\task_2_2\\resources\\image1.jpeg"),
+                factory.createImage("C:\\Users\\Misha\\IdeaProjects\\design-patterns-java\\Java\\lab13_Proxy\\task_2_2\\resources\\image2.jpeg"),
+                factory.createImage("C:\\Users\\Misha\\IdeaProjects\\design-patterns-java\\Java\\lab13_Proxy\\task_2_2\\resources\\image3.jpeg"),
+                factory.createImage("C:\\Users\\Misha\\IdeaProjects\\design-patterns-java\\Java\\lab13_Proxy\\task_2_2\\resources\\image4.jpeg"),
+                factory.createImage("C:\\Users\\Misha\\IdeaProjects\\design-patterns-java\\Java\\lab13_Proxy\\task_2_2\\resources\\image5.jpeg"),
+                factory.createImage("C:\\Users\\Misha\\IdeaProjects\\design-patterns-java\\Java\\lab13_Proxy\\task_2_2\\resources\\image6.jpeg"),
+                factory.createImage("C:\\Users\\Misha\\IdeaProjects\\design-patterns-java\\Java\\lab13_Proxy\\task_2_2\\resources\\image7.jpeg"),
+                factory.createImage("C:\\Users\\Misha\\IdeaProjects\\design-patterns-java\\Java\\lab13_Proxy\\task_2_2\\resources\\image8.jpeg"),
+                factory.createImage("C:\\Users\\Misha\\IdeaProjects\\design-patterns-java\\Java\\lab13_Proxy\\task_2_2\\resources\\image9.jpeg"),
+                factory.createImage("C:\\Users\\Misha\\IdeaProjects\\design-patterns-java\\Java\\lab13_Proxy\\task_2_2\\resources\\image10.jpeg"),
         };
 
         for (DisplayObject image : images) {
