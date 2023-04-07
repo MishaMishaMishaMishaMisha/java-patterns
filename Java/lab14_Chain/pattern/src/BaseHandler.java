@@ -1,5 +1,5 @@
 public class BaseHandler implements Handler {
-    private Handler next;
+    private Handler next = null;
 
     @Override
     public void setNext(Handler handler) {
