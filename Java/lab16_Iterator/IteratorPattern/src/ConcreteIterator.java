@@ -1,18 +1,21 @@
-public class ConcreteIterator implements Iterator{
-    final private CollectionElements elements;
-    private int marker;
-    public ConcreteIterator(CollectionElements elements) {
-        this.elements = elements;
-        marker = 0;
+import java.util.List;
+
+public class ConcreteIterator implements Iterator {
+
+    private final List<Element> collection;
+    private int iterationState;
+
+    public ConcreteIterator(CollectionElements collection) {
+        this.collection = collection.getElements();
+        iterationState = 0;
     }
 
     @Override
     public Element getNext() {
-        return elements.getElements()[marker++];
+        return collection.get(iterationState++);
     }
-
     @Override
     public boolean hasMore() {
-        return marker < elements.getElements().length;
+        return iterationState < collection.size();
     }
 }
