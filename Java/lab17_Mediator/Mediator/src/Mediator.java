@@ -1,3 +1,3 @@
 public interface Mediator {
-    void brodcastEvent();
+    void broadcast(Component componentFrom, String message);
 }

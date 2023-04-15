@@ -3,20 +3,22 @@ public class Client {
     public static void main(String[] args) {
 
         ComponentA[] components = {
-                new ComponentA("component 1"),
-                new ComponentA("component 2"),
-                new ComponentA("component 3"),
-                new ComponentA("component 4"),
-                new ComponentA("component 5"),
+                new ComponentA("Comp1"),
+                new ComponentA("Comp2"),
+                new ComponentA("Comp3"),
+                new ComponentA("Comp4"),
         };
+
         ConcreteMediator mediator = new ConcreteMediator();
 
         for (ComponentA component : components) {
-            mediator.addComponent(component);
             component.setMediator(mediator);
+            mediator.addComponent(component);
         }
 
-        components[3].brodcastEvent();
+        Component component3 = components[2];
+
+        component3.broadcastMessage("Hello!");
 
     }
 

@@ -1,4 +1,4 @@
 public interface Component {
-    void handleEvent();
-    void brodcastEvent();
+    void broadcastMessage(String message); // як правило Команда (в контексті шаблону проєктування Команда)
+    void handleMessage(Component componentFrom, String message);
 }

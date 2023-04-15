@@ -4,20 +4,33 @@ public class ComponentA implements Component {
         this.id = id;
     }
 
-    final private String id;
     private Mediator mediator;
+
+    private final String id;
 
     public void setMediator(Mediator mediator) {
         this.mediator = mediator;
     }
 
-    @Override
-    public void handleEvent() {
-        System.out.println("handle event for component " + this.id);
+    public String getId() {
+        return id;
     }
 
     @Override
-    public void brodcastEvent() {
-        mediator.brodcastEvent();
+    public void broadcastMessage(String message) {
+        if (mediator != null){
+            mediator.broadcast(this, message);
+        }
+    }
+
+    @Override
+    public void handleMessage(Component componentFrom, String message) {
+        String from = "";
+        if (componentFrom instanceof ComponentA){
+            ComponentA concreteComponent = (ComponentA) componentFrom;
+            from = concreteComponent.getId();
+        }
+
+        System.out.printf("Component %s: Message '%s' received from Component '%s'\n", id, message, from);
     }
 }
