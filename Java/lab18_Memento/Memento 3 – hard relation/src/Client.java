@@ -1,30 +1,45 @@
+// шаблон проєктування Знімок, Знімки з підвищеним захистом
+
 public class Client {
 
-
     public static void main(String[] args) {
+
         final ConcreteOriginator originator = new ConcreteOriginator();
-        Caretaker caretaker = new Caretaker();
+        final Caretaker caretaker = new Caretaker();
 
-        caretaker.store(originator.save());
-        originator.setState("Hello");
-        caretaker.store(originator.save());
-        originator.setState(originator.getState() + ", ");
-        caretaker.store(originator.save());
-        originator.setState(originator.getState() + "World");
-        caretaker.store(originator.save());
-        originator.setState(originator.getState() + "!");
+        caretaker.push(originator.save());
+        originator.updateState("Hello");
 
-        originator.showState();
+        caretaker.push(originator.save());
+        originator.updateState(", ");
 
+        caretaker.push(originator.save());
+        originator.updateState("World");
+
+        caretaker.push(originator.save());
+        originator.updateState("!");
+
+        originator.printState();
+
+        // TODO: perform undo
         caretaker.undo();
-        originator.showState();
+        originator.printState();
+
+        // TODO: perform undo
         caretaker.undo();
-        originator.showState();
+        originator.printState();
+
+        // TODO: perform undo
         caretaker.undo();
-        originator.showState();
+        originator.printState();
+
+        // TODO: perform undo
         caretaker.undo();
-        originator.showState();
+        originator.printState();
+
+        // TODO: perform undo
+        caretaker.undo();
+        originator.printState();
 
     }
-
 }

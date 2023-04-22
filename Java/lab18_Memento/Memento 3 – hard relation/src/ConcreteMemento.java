@@ -1,6 +1,7 @@
 public class ConcreteMemento implements Memento {
-    final private ConcreteOriginator originator;
-    final private String state;
+
+    private final ConcreteOriginator originator;
+    private final String state;
 
     public ConcreteMemento(ConcreteOriginator originator, String state) {
         this.originator = originator;

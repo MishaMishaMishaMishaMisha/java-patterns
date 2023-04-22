@@ -1,27 +1,39 @@
+// шаблон проєктування Знімок, реалізація на основі внутрішніх класів
+
 public class Client {
 
 
     public static void main(String[] args) {
         final Originator originator = new Originator();
-        Caretaker caretaker = new Caretaker(originator);
+        final Caretaker caretaker = new Caretaker(originator);
 
         caretaker.doSomething("Hello");
         caretaker.doSomething(", ");
         caretaker.doSomething("World");
         caretaker.doSomething("!");
-        originator.showState();
 
-        caretaker.undo();
-        originator.showState();
-        caretaker.undo();
-        originator.showState();
-        caretaker.undo();
-        originator.showState();
+        originator.printState();
 
+        // TODO: perform undo
         caretaker.undo();
-        originator.showState();
+        originator.printState();
+
+        // TODO: perform undo
         caretaker.undo();
-        originator.showState();
+        originator.printState();
+
+        // TODO: perform undo
+        caretaker.undo();
+        originator.printState();
+
+        // TODO: perform undo
+        caretaker.undo();
+        originator.printState();
+
+        // TODO: perform undo
+        caretaker.undo();
+        originator.printState();
+
     }
 
 }

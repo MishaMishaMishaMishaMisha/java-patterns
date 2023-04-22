@@ -1,25 +1,33 @@
 public class Originator {
-
+    /**
+     * Цей параметр моделює стан нашого об'єкту
+     */
     private String state = "";
 
-    public Memento save() {
-        return new ConcreteMemento(state);
-    }
+    //    Технічні методи встановлення та друкування стану
 
-    public void restore(Memento memento) {
-        state = ((ConcreteMemento)memento).getState();
-    }
-
-    public void update(String newState) {
-        this.state = newState;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void showState() {
+    /**
+     * Виводить стан об'єкту в консоль
+     */
+    public void printState() {
         System.out.println(state);
     }
 
+    /**
+     * Оновлює стан конкатенуючи до поточного стану заданий рядок
+     * @param toUpdate параметр, що додається до об'єкту
+     */
+    public void updateState(String toUpdate) {
+        this.state += toUpdate;
+    }
+
+    public Memento save(){
+        return new ConcreteMemento(state);
+    }
+
+    public void restore(Memento memento){
+        if (memento instanceof ConcreteMemento){
+            state = ((ConcreteMemento) memento).getState();
+        }
+    }
 }
