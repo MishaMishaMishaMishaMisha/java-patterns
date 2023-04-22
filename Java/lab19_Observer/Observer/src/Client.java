@@ -5,10 +5,11 @@ public class Client {
         Publisher publisher = new Publisher("Publisher1");
 
         Subscriber[] subscribers = {
-                new ConcreteSubscriber("subscriber0"),
-                new ConcreteSubscriber("subscriber1"),
-                new ConcreteSubscriber("subscriber2"),
-                new ConcreteSubscriber("subscriber3"),
+                new ConcreteSubscriber("Subscriber 0"),
+                new ConcreteSubscriber("Subscriber 1"),
+                new ConcreteSubscriber("Subscriber 2"),
+                new ConcreteSubscriber("Subscriber 3"),
+                new ConcreteSubscriber("Subscriber 5"),
         };
 
         for (Subscriber subscriber : subscribers) {
@@ -16,15 +17,22 @@ public class Client {
         }
 
 
-        System.out.println("\n========= state1 ============\n");
-        publisher.setMainState("state1");
-        System.out.println("\n========= state2 ============\n");
-        publisher.setMainState("state2");
+        System.out.println("========= State 1 ===========");
+        publisher.setMainState("State 1");
 
-        publisher.unsubscribe(subscribers[1]);
-        publisher.unsubscribe(subscribers[2]);
-        System.out.println("\n========= state3 ============\n");
-        publisher.setMainState("state3");
+        publisher.unsubscribe(subscribers[0]);
+        publisher.unsubscribe(subscribers[3]);
+
+        Publisher publisher2 = new Publisher("Publisher2");
+        publisher2.subscribe(subscribers[0]);
+        publisher2.subscribe(subscribers[3]);
+        publisher2.subscribe(subscribers[1]);
+
+        System.out.println("========= State 2 ===========");
+        publisher.setMainState("State 2");
+        publisher2.setMainState("State 2");
+
+
 
     }
 

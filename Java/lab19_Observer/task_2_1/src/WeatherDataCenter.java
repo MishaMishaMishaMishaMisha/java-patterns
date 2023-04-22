@@ -1,10 +1,9 @@
-
 public class WeatherDataCenter {
 
     final private WeatherReader weatherReader;
 
     public WeatherDataCenter() {
-        weatherReader = new WeatherReader("resources/input01.txt");
+        weatherReader = new WeatherReader("C:\\Users\\Misha\\IdeaProjects\\design-patterns-java\\Java\\lab19_Observer\\task_2_1\\resources\\input01.txt");
     }
 
     public boolean update() {

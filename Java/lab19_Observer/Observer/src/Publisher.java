@@ -3,48 +3,50 @@ import java.util.List;
 
 public class Publisher {
 
-    final private String publisherName;
-    final private List<Subscriber> subscribers = new ArrayList<>();
-    private String mainState = "";
-
-    public Publisher(String publisherName) {
-        this.publisherName = publisherName;
+    public Publisher(String name) {
+        this.name = name;
     }
 
-    public String getPublisherName() {
-        return publisherName;
+    public String getName() {
+        return name;
+    }
+
+    private final String name;
+    private String mainState = "";
+
+    public void setMainState(String mainState) {
+        if (mainState.equals(this.mainState)){
+            return;
+        }
+
+        this.mainState = mainState;
+        notifySubscribers(mainState);
     }
 
     @Override
     public String toString() {
         return "Publisher{" +
-                "publisherName='" + publisherName + '\'' +
+                "name='" + name + '\'' +
                 ", mainState='" + mainState + '\'' +
                 '}';
     }
 
-    public void setMainState(String newState) {
-        mainState = newState;
-        notifySubscribers(mainState);
-    }
+    private final List<Subscriber> subscribers = new ArrayList<>();
 
-    public String getMainState() {
-        return mainState;
-    }
-
-    void subscribe(Subscriber subscriber){
+    public void subscribe(Subscriber subscriber){
         subscribers.add(subscriber);
     }
 
-    void unsubscribe(Subscriber subscriber){
+    public void unsubscribe(Subscriber subscriber){
         subscribers.remove(subscriber);
     }
 
-    void notifySubscribers(String context){
+    private void notifySubscribers(String context){
         for (Subscriber subscriber : subscribers) {
             subscriber.update(this, context);
         }
 
 
     }
+
 }

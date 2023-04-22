@@ -1,3 +1,3 @@
 public interface Subscriber {
-    void update(WeatherDataCenter dataCenter, WeatherEvent event);
+    void onWeatherEvent(WeatherEvent event);
 }

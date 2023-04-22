@@ -1,16 +1,13 @@
 public class ConcreteSubscriber implements Subscriber {
 
-    final private String subscriberName;
+    private final String name;
 
-    public ConcreteSubscriber(String subscriberName) {
-        this.subscriberName = subscriberName;
+    public ConcreteSubscriber(String name) {
+        this.name = name;
     }
 
     @Override
     public void update(Publisher publisher, String context) {
-        System.out.println(" ========================== ");
-        System.out.println("Публікація: " + context);
-        System.out.println("Виданн:     " + publisher.getPublisherName());
-        System.out.println("Підписник:  " + subscriberName);
+        System.out.printf("Subscriber %s receives %s from %s\n", name, context, publisher.getName());
     }
 }
