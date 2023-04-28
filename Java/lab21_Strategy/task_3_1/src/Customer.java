@@ -1,12 +1,14 @@
 public class Customer {
+    private PaymentStrategy strategy;
 
-  public void makeBankAccountPayment(int amount) {
-    System.out.println("Payment of $" + amount + " made from bank account.");
-  }
-
-  public void makePayPalPayment(int amount) {
-    System.out.println("Payment of $" + amount + " made from PayPal.");
-  }
-
-
+    public void setStrategy(PaymentStrategy strategy) {
+      this.strategy = strategy;
+    }
+    public void makePayment(int amount) {
+      if (strategy != null){
+        strategy.makePayment(amount);
+      } else {
+        throw new IllegalArgumentException("PaymentStrategy is not set!");
+      }
+    }
 }
