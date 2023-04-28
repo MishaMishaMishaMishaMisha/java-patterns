@@ -7,6 +7,10 @@ public class MediaPlayer {
     private State state;
     private int currentTrackNum = 0;
 
+    public MediaPlayer() {
+        state = new StateStopped();
+    }
+
 
     public String getCurrentTrack() {
         return tracks.get(currentTrackNum);
@@ -41,23 +45,48 @@ public class MediaPlayer {
     }
 
     public void play() {
-
+        if (state == null) {
+            return;
+        }
+        else {
+            state.play(this);
+        }
     }
 
     public void pause() {
-
+        if (state == null) {
+            return;
+        }
+        else {
+            state.pause(this);
+        }
     }
 
     public void next() {
-
+        if (state == null) {
+            return;
+        }
+        else {
+            state.next(this);
+        }
     }
 
     public void prev() {
-
+        if (state == null) {
+            return;
+        }
+        else {
+            state.prev(this);
+        }
     }
 
     public void stop() {
-
+        if (state == null) {
+            return;
+        }
+        else {
+            state.stop(this);
+        }
     }
 
 }
