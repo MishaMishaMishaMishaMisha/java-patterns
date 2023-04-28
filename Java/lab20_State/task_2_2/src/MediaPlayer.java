@@ -1,14 +1,15 @@
 public class MediaPlayer {
 
-    private String state = "paused";
-    private String icon = "play button";
+    private State state;
+    private String icon;
 
-    public void setState(String state) {
-        this.state = state;
+    public MediaPlayer() {
+        state = new StatePlaying();
+        icon = "play button";
     }
 
-    public String getState() {
-        return state;
+    public void setState(State state) {
+        this.state = state;
     }
 
     public String getIcon() {
@@ -20,27 +21,11 @@ public class MediaPlayer {
     }
 
     public void play() {
-        switch (state) {
-            case "paused":
-                setState("playing");
-                setIcon("pause button");
-                System.out.println("Video playing, icon set to " + getIcon());
-                break;
-            case "playing":
-                break;
-        }
+        state.play(this);
     }
 
     public void pause() {
-        switch (state) {
-            case "paused":
-                break;
-            case "playing":
-                setState("paused");
-                setIcon("play button");
-                System.out.println("Video paused, icon set to " + getIcon());
-                break;
-        }
+        state.pause(this);
     }
 
 }
