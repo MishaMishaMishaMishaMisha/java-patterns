@@ -38,4 +38,10 @@ public class GeneralStaff extends MilitaryObject {
                 ", secretPaper=" + secretPaper +
                 '}';
     }
+
+    @Override
+    public void accept(Spy visitor) {
+        visitor.visit(this);
+    }
+
 }

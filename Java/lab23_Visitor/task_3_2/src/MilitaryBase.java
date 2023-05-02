@@ -13,7 +13,6 @@ public class MilitaryBase extends MilitaryObject {
     /**
      * Кількість джипів на військовій базі
      */
-
     private int jeeps;
 
     /**
@@ -70,4 +69,10 @@ public class MilitaryBase extends MilitaryObject {
                 ", tanks=" + tanks +
                 '}';
     }
+
+    @Override
+    public void accept(Spy visitor) {
+        visitor.visit(this);
+    }
+
 }
