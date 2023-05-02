@@ -1,8 +1,8 @@
-public class Manager implements Employee {
+public class ITemployee implements Employee {
 
     private int salary;
 
-    public Manager(int salary) {
+    public ITemployee(int salary) {
         this.salary = salary;
     }
 

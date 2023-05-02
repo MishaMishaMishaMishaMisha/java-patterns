@@ -15,4 +15,9 @@ public class SalesPerson implements Employee {
         return salary;
     }
 
+    @Override
+    public void accept(SalaryVisitor visitor) {
+        visitor.visit(this);
+    }
+
 }
