@@ -1,17 +1,19 @@
 public class Coffee implements Groceries {
-    @Override
-    public double getPrice() {
-        return price;
-    }
+
+    private double price = 10;
 
     public void setPrice(double price) {
         this.price = price;
     }
 
-    private double price  = 50;
+    @Override
+    public double getPrice() {
+        return price;
+    }
 
     @Override
-    public void accept(Visitor visitor) {
+    public void accept(PriceVisitor visitor) {
         visitor.visit(this);
     }
+
 }

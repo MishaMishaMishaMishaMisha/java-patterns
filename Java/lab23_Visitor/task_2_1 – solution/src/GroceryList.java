@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class GroceryList implements Groceries {
 
-    private final ArrayList<Groceries> groceries = new ArrayList<>();
+    final private ArrayList<Groceries> groceries = new ArrayList<>();
 
     public GroceryList() {
     }
@@ -21,10 +21,11 @@ public class GroceryList implements Groceries {
     }
 
     @Override
-    public void accept(Visitor visitor) {
-        visitor.visit(this);
+    public void accept(PriceVisitor visitor) {
         for (Groceries grocery : groceries) {
             grocery.accept(visitor);
         }
+
     }
+
 }

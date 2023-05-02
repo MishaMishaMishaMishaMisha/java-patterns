@@ -1,6 +1,6 @@
 public interface Groceries {
 
     double getPrice();
-    void accept(Visitor visitor);
+    void accept(PriceVisitor visitor);
 
 }

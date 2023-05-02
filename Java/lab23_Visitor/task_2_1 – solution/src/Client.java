@@ -5,19 +5,16 @@ public class Client {
         groceryList.add(new Bread());
         groceryList.add(new Bread());
         groceryList.add(new Milk());
-
-        Coffee coffee = new Coffee();
-        groceryList.add(coffee);
+        groceryList.add(new Coffee());
 
         System.out.println("Total price of grocery list: " + groceryList.getPrice());
 
-        groceryList.accept(new DiscountVisitor(0.8f));
-        System.out.println("Total price of grocery list: " + groceryList.getPrice());
-        System.out.println(coffee.getPrice());
+        groceryList.accept(new DiscountVisitor());
+        System.out.println("New total price of grocery list after discount: " + groceryList.getPrice());
 
-        groceryList.accept(new IncreasingPriceVisitor());
-        System.out.println("Total price of grocery list: " + groceryList.getPrice());
-        System.out.println(coffee.getPrice());
+        groceryList.accept(new InflationPriceVisitor());
+        System.out.println("New total price of grocery list after price increase: " + groceryList.getPrice());
+
     }
 
 }

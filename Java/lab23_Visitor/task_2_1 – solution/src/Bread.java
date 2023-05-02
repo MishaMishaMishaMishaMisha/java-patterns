@@ -12,7 +12,7 @@ public class Bread implements Groceries {
     }
 
     @Override
-    public void accept(Visitor visitor) {
+    public void accept(PriceVisitor visitor) {
         visitor.visit(this);
     }
 
