@@ -1,21 +1,29 @@
-public class ConcreteClass2 extends AbstractClass{
+public class ConcreteClass2 extends AbstractClass {
+
+    public ConcreteClass2(int id) {
+        this.id = id;
+    }
+
+    private final int id;
+
     @Override
-    public void step1() {
+    protected void step1() {
         System.out.println("ConcreteClass2: step1");
+        throw new RuntimeException();
     }
 
     @Override
-    public boolean step2() {
-        return true;
+    protected boolean step2() {
+        return id % 2 == 0; // ідентифікатор - парне число
     }
 
     @Override
-    public void step3() {
+    protected void step3() {
         System.out.println("ConcreteClass2: step3");
     }
 
     @Override
-    public void step4() {
-        super.step4();
+    protected void step4() {
+        System.out.println("ConcreteClass2: step4");
     }
 }

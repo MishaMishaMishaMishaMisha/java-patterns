@@ -1,10 +1,13 @@
 public class Main {
     public static void main(String[] args) {
-        ConcreteClass1 concreteClass1 = new ConcreteClass1();
-        concreteClass1.templateMethod();
+        AbstractClass obj1 = new ConcreteClass1();
+        obj1.templateMethod();
 
-        System.out.println("=======================");
-        ConcreteClass2 concreteClass2 = new ConcreteClass2();
-        concreteClass2.templateMethod();
+        System.out.println("============");
+        AbstractClass obj2 = new ConcreteClass2(11);
+        obj2.templateMethod();
+        System.out.println("============");
+        AbstractClass obj3 = new ConcreteClass2(22);
+        obj3.templateMethod();
     }
 }

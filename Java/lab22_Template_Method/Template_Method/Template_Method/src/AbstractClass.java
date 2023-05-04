@@ -1,25 +1,28 @@
 public abstract class AbstractClass {
 
-    public void templateMethod(){  // Шаблонний метод
+    final public void templateMethod() {
         step1();
         if (step2()){
             step3();
-        }
-        else {
+            hook1();
+        } else {
             step4();
+            hook2();
         }
     }
 
-    public void step1(){  // метод з типовою реалізацією
-        System.out.println("AbstractClass: step1");
+    protected void step1(){
+        System.out.println("Default method step1");
+    }
+    protected boolean step2(){
+        return true;
+    }
+    abstract protected void step3();
+    abstract protected void step4();
+
+    protected void hook1(){
     }
 
-    abstract public boolean step2();  // абстрактний метод
-
-    public void step3(){  // метод з типовою реалізацією
-        System.out.println("AbstractClass: step3");
+    protected void hook2(){
     }
-
-    public void step4(){}  // хук-метод
-
 }
